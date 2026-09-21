@@ -1,0 +1,20 @@
+tempo 104
+scale F# minor
+module fm bell { algorithm two_op op0_envelope 0.001 0.2 0.0 0.3 }
+module keys pad { voice_mode poly detune 16% cutoff 800hz osc2_pitch -12st }
+pattern beat {
+    kick:  X - - -  x?0.5 - o -  x*2 - - -  x:0.6 - - -
+    clap:  - - - -  X - - -  - - - -  X - - -
+    crash: X - - -  - - - -  - - - -  - - - -
+    cp:    - - - -  x - - -
+    hh:    x x x x
+}
+pattern lick { A4:0.8 .. ~B4:0.9 ..*15 <D4:0.6 F#5 A5:1.0> C#5*4 - [1.3 3.3 5.3]:0.6 Fm9 Dbmaj7/2 G/2:0.55 E5/3 C7 }
+track pad { play lick using bell level 0.7 pan -0.2 arp up rate=16 gate=0.6
+            out > lowpass(3000, 0.05, lfo_bars=16) as lp > autopan(0.4, bars=8) > master }
+groove g { hat swing 0.62 nudge 0.008
+           snare nudge -0.006 }
+scene drop { reverb_mix = 0.3  auto master tilt 0.4 > -0.2  auto bell cutoff 0.2 > 0.6 > 0.2
+             track pad { play lick } }
+arrange { intro x4 drop x8 }
+master { in > eq(low=1.5, mid=1.0) > limiter > out }

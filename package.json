@@ -1,0 +1,30 @@
+{
+  "name": "tree-sitter-synth",
+  "version": "0.1.0",
+  "description": "Tree-sitter grammar for the synth-core .synth DSL",
+  "license": "MIT",
+  "keywords": [
+    "parser",
+    "tree-sitter",
+    "synth"
+  ],
+  "main": "bindings/node",
+  "scripts": {
+    "generate": "tree-sitter generate",
+    "test": "tree-sitter test",
+    "parse": "tree-sitter parse"
+  },
+  "tree-sitter": [
+    {
+      "scope": "source.synth",
+      "file-types": [
+        "synth"
+      ],
+      "highlights": "queries/highlights.scm",
+      "injection-regex": "^synth$"
+    }
+  ],
+  "devDependencies": {
+    "tree-sitter-cli": "^0.27.0"
+  }
+}

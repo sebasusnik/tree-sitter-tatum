@@ -1,0 +1,293 @@
+==================
+Track with routing and arp
+==================
+
+track lead {
+    play riff
+    using bell
+    level 0.7  pan -0.2  gate 0.8  velocity 0.9
+    delay_send 0.2  reverb_send 0.1
+    sidechain 0.5 from=bass
+    arp up rate=16 gate=0.6 octaves=2
+    out > saturate(0.3) > master
+}
+
+---
+
+(source_file
+  (track_definition
+    (identifier)
+    (track_body
+      (play_statement
+        (identifier))
+      (using_statement
+        (identifier))
+      (parameter
+        (identifier)
+        (number))
+      (parameter
+        (identifier)
+        (negative
+          (number)))
+      (parameter
+        (identifier)
+        (number))
+      (parameter
+        (identifier)
+        (number))
+      (parameter
+        (identifier)
+        (number))
+      (parameter
+        (identifier)
+        (number))
+      (parameter
+        (identifier)
+        (number)
+        (option
+          (option_key)
+          (value_name)))
+      (parameter
+        (identifier)
+        (value_name)
+        (option
+          (option_key)
+          (number))
+        (option
+          (option_key)
+          (number))
+        (option
+          (option_key)
+          (number)))
+      (routing
+        (identifier)
+        (node_call
+          (identifier)
+          (arguments
+            (number)))
+        (node_ref
+          (identifier))))))
+
+==================
+A routing chain wrapped across lines
+==================
+
+track pad { play chords using cloud level 0.3
+            out > highpass(300hz, 0.05)
+                > lowpass(3000, 0.05, lfo_bars=16, lfo_depth=1200) as lp
+                > autopan(0.4, bars=8) > master }
+
+---
+
+(source_file
+  (track_definition
+    (identifier)
+    (track_body
+      (play_statement
+        (identifier))
+      (using_statement
+        (identifier))
+      (parameter
+        (identifier)
+        (number))
+      (routing
+        (identifier)
+        (node_call
+          (identifier)
+          (arguments
+            (quantity)
+            (number)))
+        (node_call
+          (identifier)
+          (arguments
+            (number)
+            (number)
+            (option
+              (option_key)
+              (number))
+            (option
+              (option_key)
+              (number)))
+          (identifier))
+        (node_call
+          (identifier)
+          (arguments
+            (number)
+            (option
+              (option_key)
+              (number))))
+        (node_ref
+          (identifier))))))
+
+==================
+Buses, master and send returns
+==================
+
+bus drums
+drums { in > compressor(-8, ratio=4, attack=8, release=60) > saturate(0.1) > master }
+reverb_return { in > highpass(300hz, 0.05) > lowpass(6.5khz, 0.08) > out }
+master { in > eq(low=1.5, mid=1.0, high=1.2) > limiter > out }
+
+---
+
+(source_file
+  (bus_declaration
+    (identifier))
+  (chain_definition
+    (identifier)
+    (chain_body
+      (chain
+        (node_ref
+          (identifier))
+        (node_call
+          (identifier)
+          (arguments
+            (negative
+              (number))
+            (option
+              (option_key)
+              (number))
+            (option
+              (option_key)
+              (number))
+            (option
+              (option_key)
+              (number))))
+        (node_call
+          (identifier)
+          (arguments
+            (number)))
+        (node_ref
+          (identifier)))))
+  (chain_definition
+    (identifier)
+    (chain_body
+      (chain
+        (node_ref
+          (identifier))
+        (node_call
+          (identifier)
+          (arguments
+            (quantity)
+            (number)))
+        (node_call
+          (identifier)
+          (arguments
+            (quantity)
+            (number)))
+        (node_ref
+          (identifier)))))
+  (master_definition
+    (chain_body
+      (chain
+        (node_ref
+          (identifier))
+        (node_call
+          (identifier)
+          (arguments
+            (option
+              (option_key)
+              (number))
+            (option
+              (option_key)
+              (number))
+            (option
+              (option_key)
+              (number))))
+        (node_ref
+          (identifier))
+        (node_ref
+          (identifier))))))
+
+==================
+Instrument node graph
+==================
+
+instrument bass {
+  gain 1.8
+  osc saw(55) as osc1
+  osc saw(55, pitch=-12) as osc2
+  osc1 > mix
+  osc2 > mix
+  mix > gain(0.333) as prescale
+  prescale > ladder(50, 0.7, ea=0.005, edepth=1500) as filter
+  filter > adsr(0.005, 0.2, 0.8, 0.15) as amp
+  amp > out
+}
+
+---
+
+(source_file
+  (instrument_definition
+    (identifier)
+    (instrument_body
+      (instrument_property
+        (identifier)
+        (number))
+      (chain
+        (node_call
+          (identifier)
+          (identifier)
+          (arguments
+            (number))
+          (identifier)))
+      (chain
+        (node_call
+          (identifier)
+          (identifier)
+          (arguments
+            (number)
+            (option
+              (option_key)
+              (negative
+                (number))))
+          (identifier)))
+      (chain
+        (node_ref
+          (identifier))
+        (node_ref
+          (identifier)))
+      (chain
+        (node_ref
+          (identifier))
+        (node_ref
+          (identifier)))
+      (chain
+        (node_ref
+          (identifier))
+        (node_call
+          (identifier)
+          (arguments
+            (number))
+          (identifier)))
+      (chain
+        (node_ref
+          (identifier))
+        (node_call
+          (identifier)
+          (arguments
+            (number)
+            (number)
+            (option
+              (option_key)
+              (number))
+            (option
+              (option_key)
+              (number)))
+          (identifier)))
+      (chain
+        (node_ref
+          (identifier))
+        (node_call
+          (identifier)
+          (arguments
+            (number)
+            (number)
+            (number)
+            (number))
+          (identifier)))
+      (chain
+        (node_ref
+          (identifier))
+        (node_ref
+          (identifier))))))

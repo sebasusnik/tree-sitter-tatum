@@ -1,0 +1,8 @@
+node_modules/
+build/
+target/
+*.wasm
+*.so
+*.dylib
+*.o
+.build/

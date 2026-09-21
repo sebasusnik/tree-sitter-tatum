@@ -1,0 +1,237 @@
+==================
+Drum lanes
+==================
+
+pattern brk {
+    kick:  X - - -  - - x -  - - X -  - - - -
+    snare: - - - -  X - o -  - - - o  X - - x*2
+    hat:   x - x?0.6 -  x - x -  x - x -  x - x x
+}
+
+---
+
+(source_file
+  (pattern_definition
+    (identifier)
+    (pattern_body
+      (lane
+        (identifier)
+        (drum_step
+          (drum_hit))
+        (rest)
+        (rest)
+        (rest)
+        (rest)
+        (rest)
+        (drum_step
+          (drum_hit))
+        (rest)
+        (rest)
+        (rest)
+        (drum_step
+          (drum_hit))
+        (rest)
+        (rest)
+        (rest)
+        (rest)
+        (rest))
+      (lane
+        (identifier)
+        (rest)
+        (rest)
+        (rest)
+        (rest)
+        (drum_step
+          (drum_hit))
+        (rest)
+        (drum_step
+          (drum_hit))
+        (rest)
+        (rest)
+        (rest)
+        (rest)
+        (drum_step
+          (drum_hit))
+        (drum_step
+          (drum_hit))
+        (rest)
+        (rest)
+        (drum_step
+          (drum_hit)
+          (multiplier
+            (number))))
+      (lane
+        (identifier)
+        (drum_step
+          (drum_hit))
+        (rest)
+        (drum_step
+          (drum_hit)
+          (probability
+            (number)))
+        (rest)
+        (drum_step
+          (drum_hit))
+        (rest)
+        (drum_step
+          (drum_hit))
+        (rest)
+        (drum_step
+          (drum_hit))
+        (rest)
+        (drum_step
+          (drum_hit))
+        (rest)
+        (drum_step
+          (drum_hit))
+        (rest)
+        (drum_step
+          (drum_hit))
+        (drum_step
+          (drum_hit))))))
+
+==================
+Melodic steps
+==================
+
+pattern riff { 1.2:0.9  -  ~5.2:0.8  ..  [1.3 3.3 5.3]:0.6  ..*3 }
+
+---
+
+(source_file
+  (pattern_definition
+    (identifier)
+    (pattern_body
+      (degree_step
+        (degree)
+        (velocity
+          (number)))
+      (rest)
+      (degree_step
+        (slide)
+        (degree)
+        (velocity
+          (number)))
+      (tie)
+      (chord
+        (degree_step
+          (degree))
+        (degree_step
+          (degree))
+        (degree_step
+          (degree))
+        (velocity
+          (number)))
+      (tie
+        (multiplier
+          (number))))))
+
+==================
+Subdivisions, ratchets and step locks
+==================
+
+pattern lick {
+    A4:0.8  ..  ~B4:0.9  ..
+    <D4:0.6 F#4:0.7 A4:0.8> <D5:0.85 F#5:0.9 A5:1.0>
+    C#5*4  -
+    1.2:0.8(cutoff=0.4, edepth=0.3, res=0.6, gate=0.5)
+}
+
+---
+
+(source_file
+  (pattern_definition
+    (identifier)
+    (pattern_body
+      (note_step
+        (note)
+        (velocity
+          (number)))
+      (tie)
+      (note_step
+        (slide)
+        (note)
+        (velocity
+          (number)))
+      (tie)
+      (subdivision
+        (note_step
+          (note)
+          (velocity
+            (number)))
+        (note_step
+          (note)
+          (velocity
+            (number)))
+        (note_step
+          (note)
+          (velocity
+            (number))))
+      (subdivision
+        (note_step
+          (note)
+          (velocity
+            (number)))
+        (note_step
+          (note)
+          (velocity
+            (number)))
+        (note_step
+          (note)
+          (velocity
+            (number))))
+      (note_step
+        (note)
+        (multiplier
+          (number)))
+      (rest)
+      (degree_step
+        (degree)
+        (velocity
+          (number))
+        (step_lock
+          (option
+            (option_key)
+            (number))
+          (option
+            (option_key)
+            (number))
+          (option
+            (option_key)
+            (number))
+          (option
+            (option_key)
+            (number)))))))
+
+==================
+Chord symbols
+==================
+
+pattern voicings { Fm9:0.6 ..*31  Dbmaj7/2 C7 G/2:0.55 E5/3 Am }
+
+---
+
+(source_file
+  (pattern_definition
+    (identifier)
+    (pattern_body
+      (chord_symbol_step
+        (chord_symbol)
+        (velocity
+          (number)))
+      (tie
+        (multiplier
+          (number)))
+      (chord_symbol_step
+        (chord_symbol))
+      (chord_symbol_step
+        (chord_symbol))
+      (chord_symbol_step
+        (pitch_class)
+        (number)
+        (velocity
+          (number)))
+      (chord_symbol_step
+        (chord_symbol))
+      (chord_symbol_step
+        (chord_symbol)))))

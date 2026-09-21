@@ -1,0 +1,121 @@
+==================
+Scenes, automation and arrangement
+==================
+
+scene drop {
+    extends build
+    tempo 128
+    reverb_mix = 0.3
+    reverb_freeze = 1
+    auto acid cutoff 0.2 > 0.6 > 0.2
+    auto master tilt 0.4 > -0.2
+    auto reverb_mix 0.1 > 0.5
+    track drums { play beat using kit }
+}
+
+arrange { intro x4  drop x8  outro }
+
+---
+
+(source_file
+  (scene_definition
+    (identifier)
+    (scene_body
+      (extends_statement
+        (identifier))
+      (parameter
+        (identifier)
+        (number))
+      (override
+        (identifier)
+        (number))
+      (override
+        (identifier)
+        (number))
+      (automation
+        (automation_target
+          (identifier)
+          (parameter_name))
+        (keyframes
+          (number)
+          (number)
+          (number)))
+      (automation
+        (automation_target
+          (identifier)
+          (parameter_name))
+        (keyframes
+          (number)
+          (negative
+            (number))))
+      (automation
+        (automation_target
+          (parameter_name))
+        (keyframes
+          (number)
+          (number)))
+      (track_definition
+        (identifier)
+        (track_body
+          (play_statement
+            (identifier))
+          (using_statement
+            (identifier))))))
+  (arrangement
+    (arrangement_entry
+      (identifier)
+      (repeat_count))
+    (arrangement_entry
+      (identifier)
+      (repeat_count))
+    (arrangement_entry
+      (identifier))))
+
+==================
+Groove
+==================
+
+groove jungle_breaks {
+    hat swing 0.62
+    snare nudge 0.01
+    kick nudge -0.005
+}
+
+---
+
+(source_file
+  (groove_definition
+    (identifier)
+    (groove_body
+      (groove_lane
+        (identifier)
+        (groove_setting
+          (identifier)
+          (number)))
+      (groove_lane
+        (identifier)
+        (groove_setting
+          (identifier)
+          (number)))
+      (groove_lane
+        (identifier)
+        (groove_setting
+          (identifier)
+          (negative
+            (number)))))))
+
+==================
+Comments
+==================
+
+# a comment at the top
+tempo 124   # and one after a statement
+
+---
+
+(source_file
+  (comment)
+  (parameter
+    (identifier)
+    (number))
+  (comment))

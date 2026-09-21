@@ -1,0 +1,32 @@
+{
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/config.schema.json",
+  "grammars": [
+    {
+      "name": "synth",
+      "camelcase": "Synth",
+      "scope": "source.synth",
+      "path": ".",
+      "file-types": [
+        "synth"
+      ],
+      "highlights": [
+        "queries/highlights.scm"
+      ],
+      "injection-regex": "^synth$"
+    }
+  ],
+  "metadata": {
+    "version": "0.1.0",
+    "license": "MIT",
+    "description": "Tree-sitter grammar for the synth-core .synth DSL",
+    "authors": [
+      {
+        "name": "Sebastian Susnik",
+        "email": "sebastian.susnik@winclap.com"
+      }
+    ],
+    "links": {
+      "repository": "https://github.com/sebasusnik/tree-sitter-synth"
+    }
+  }
+}

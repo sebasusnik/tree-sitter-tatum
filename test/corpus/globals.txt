@@ -1,0 +1,130 @@
+==================
+Globals
+==================
+
+tempo 124
+meter 4/4
+scale F# minor
+swing 0.56
+humanize 0.05 timing 0.02
+gain_comp 0.3
+sidechain 0.4 attack=2ms release=110ms
+delay sync=dotted_eighth feedback=0.45 filter=0.5
+reverb size=0.7 damp=0.4 predelay=20 sidechain=0.5
+bus drums
+use "rig.synth"
+
+---
+
+(source_file
+  (parameter
+    (identifier)
+    (number))
+  (meter_statement
+    (number)
+    (number))
+  (scale_statement
+    (pitch_class)
+    (identifier))
+  (parameter
+    (identifier)
+    (number))
+  (parameter
+    (identifier)
+    (number))
+  (parameter
+    (identifier)
+    (number))
+  (parameter
+    (identifier)
+    (number))
+  (parameter
+    (identifier)
+    (number)
+    (option
+      (option_key)
+      (quantity))
+    (option
+      (option_key)
+      (quantity)))
+  (parameter
+    (identifier)
+    (option
+      (option_key)
+      (value_name))
+    (option
+      (option_key)
+      (number))
+    (option
+      (option_key)
+      (number)))
+  (parameter
+    (identifier)
+    (option
+      (option_key)
+      (number))
+    (option
+      (option_key)
+      (number))
+    (option
+      (option_key)
+      (number))
+    (option
+      (option_key)
+      (number)))
+  (bus_declaration
+    (identifier))
+  (parameter
+    (identifier)
+    (string)))
+
+==================
+Module definitions
+==================
+
+module bass acid {
+    cutoff 800hz
+    resonance 80%
+    osc1_wave saw
+    osc2_pitch -12st
+    lfo_sync bars_4
+}
+
+module fm bell { algorithm two_op op0_envelope 0.001 0.2 0.0 0.3 }
+
+---
+
+(source_file
+  (module_definition
+    (identifier)
+    (identifier)
+    (module_body
+      (parameter
+        (identifier)
+        (quantity))
+      (parameter
+        (identifier)
+        (quantity))
+      (parameter
+        (identifier)
+        (value_name))
+      (parameter
+        (identifier)
+        (negative
+          (quantity)))
+      (parameter
+        (identifier)
+        (value_name))))
+  (module_definition
+    (identifier)
+    (identifier)
+    (module_body
+      (parameter
+        (identifier)
+        (value_name))
+      (parameter
+        (identifier)
+        (number)
+        (number)
+        (number)
+        (number)))))
