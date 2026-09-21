@@ -1,7 +1,7 @@
 # tree-sitter-tatum
 
 A [Tree-sitter](https://tree-sitter.github.io) grammar for **Tatum**, the
-language that [synth-core](https://github.com/sebasusnik/synth-core) plays.
+language that [tatum](https://github.com/sebasusnik/tatum) plays.
 Songs are written in `.synth` files.
 
 A *tatum* is the smallest time unit a listener can perceive — the atomic pulse
@@ -59,11 +59,11 @@ Three things the token rules get right that are easy to get wrong:
 
 ## Verification
 
-Every `.synth` file in the synth-core repo parses with no ERROR node — 168 files
+Every `.synth` file in the engine repo parses with no ERROR node — 167 files
 at the time of writing:
 
 ```
-find ../synth-core -name '*.synth' -print0 \
+find ../tatum -name '*.synth' -print0 \
   | xargs -0 npx tree-sitter parse -q | grep ERROR
 ```
 
