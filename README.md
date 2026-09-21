@@ -4,7 +4,7 @@ A [Tree-sitter](https://tree-sitter.github.io) grammar for the `.synth` DSL that
 [synth-core](https://github.com/sebasusnik/synth-core) plays.
 
 It exists so editors can colour a song. The Zed extension that uses it lives in
-[zed-synth](../zed-synth); the queries in `queries/` are the source of truth and
+[zed-synth](https://github.com/sebasusnik/zed-synth); the queries in `queries/` are the source of truth and
 that extension carries a copy.
 
 ```
