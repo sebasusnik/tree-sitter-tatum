@@ -1,10 +1,16 @@
-# tree-sitter-synth
+# tree-sitter-tatum
 
-A [Tree-sitter](https://tree-sitter.github.io) grammar for the `.synth` DSL that
-[synth-core](https://github.com/sebasusnik/synth-core) plays.
+A [Tree-sitter](https://tree-sitter.github.io) grammar for **Tatum**, the
+language that [synth-core](https://github.com/sebasusnik/synth-core) plays.
+Songs are written in `.synth` files.
+
+A *tatum* is the smallest time unit a listener can perceive — the atomic pulse
+a rhythm is inferred from. It is the right name for this language because its
+hard limit is sixteen steps to the bar, and subdivisions, ratchets and ties all
+exist to negotiate with that one step.
 
 It exists so editors can colour a song. The Zed extension that uses it lives in
-[zed-synth](https://github.com/sebasusnik/zed-synth); the queries in `queries/` are the source of truth and
+[zed-tatum](https://github.com/sebasusnik/zed-tatum); the queries in `queries/` are the source of truth and
 that extension carries a copy.
 
 ```

@@ -1,5 +1,5 @@
 /**
- * @file Tree-sitter grammar for the synth-core `.synth` DSL
+ * @file Tree-sitter grammar for the Tatum language (`.synth` files)
  * @license MIT
  *
  * Mirrors core/src/dsl/lexer.rs and core/src/dsl/parser.rs.
@@ -29,7 +29,7 @@ const WORD = ($) => choice($.identifier, alias('master', $.identifier));
 const looseList = (rule) => repeat(seq(rule, optional(',')));
 
 module.exports = grammar({
-  name: 'synth',
+  name: 'tatum',
 
   word: ($) => $.identifier,
 
