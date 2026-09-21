@@ -75,7 +75,8 @@
 ; parser allows too.
 ((parameter name: (identifier) @keyword)
  (#any-of? @keyword
-  "tempo" "swing" "humanize" "gain_comp" "use" "sidechain" "arp"))
+  "tempo" "swing" "humanize" "gain_comp" "use" "sidechain" "arp"
+  "delay" "reverb"))
 
 ; ── Chains and effects ─────────────────────────────────────────────────────
 
