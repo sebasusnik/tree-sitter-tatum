@@ -684,7 +684,27 @@
     "fields": {
       "controller": {
         "multiple": false,
-        "required": true,
+        "required": false,
+        "types": [
+          {
+            "type": "number",
+            "named": true
+          }
+        ]
+      },
+      "drum": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "note": {
+        "multiple": false,
+        "required": false,
         "types": [
           {
             "type": "number",
@@ -694,10 +714,20 @@
       },
       "target": {
         "multiple": false,
-        "required": true,
+        "required": false,
         "types": [
           {
             "type": "automation_target",
+            "named": true
+          }
+        ]
+      },
+      "track": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
             "named": true
           }
         ]
@@ -1632,6 +1662,10 @@
     "named": false
   },
   {
+    "type": "keys",
+    "named": false
+  },
+  {
     "type": "master",
     "named": false
   },
@@ -1662,6 +1696,10 @@
   {
     "type": "option_key",
     "named": true
+  },
+  {
+    "type": "pad",
+    "named": false
   },
   {
     "type": "parameter_name",

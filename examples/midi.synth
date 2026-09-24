@@ -1,5 +1,5 @@
-tempo 120
 midi {
-    cc 74 > acid cutoff
-    cc 7 > pad level
+    cc 10 > pad pan
+    keys > solo
+    pad 36 > kick kick
 }

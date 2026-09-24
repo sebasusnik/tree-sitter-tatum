@@ -40,6 +40,8 @@
   "extends"
   "midi"
   "cc"
+  "keys"
+  "pad"
 ] @keyword
 
 ; The names you define, and the names you refer to them by.
@@ -95,6 +97,9 @@
 ; ── Arrangement ────────────────────────────────────────────────────────────
 
 (arrangement_entry scene: (identifier) @variable)
+
+; `pad 36 > kick kick`: the drum is one of the kit's own names.
+(midi_mapping drum: (identifier) @property)
 (repeat_count) @number
 
 ; `auto acid cutoff 0.2 > 0.6`: what is being swept, then the sweep itself.

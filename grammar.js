@@ -280,7 +280,13 @@ module.exports = grammar({
     midi_block: ($) => seq('midi', '{', repeat($.midi_mapping), '}'),
 
     midi_mapping: ($) =>
-      seq('cc', field('controller', $.number), '>', field('target', $.automation_target)),
+      choice(
+        seq('cc', field('controller', $.number), '>', field('target', $.automation_target)),
+        // `keys > solo`: the keyboard plays a track.
+        seq('keys', '>', field('track', $.identifier)),
+        // `pad 36 > kick kick`: a pad hits one drum of a track.
+        seq('pad', field('note', $.number), '>', field('track', $.identifier), field('drum', $.identifier)),
+      ),
 
     arrangement_entry: ($) =>
       seq(field('scene', WORD($)), optional(field('repeat', $.repeat_count))),

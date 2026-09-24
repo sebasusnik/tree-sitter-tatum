@@ -1399,31 +1399,94 @@
       ]
     },
     "midi_mapping": {
-      "type": "SEQ",
+      "type": "CHOICE",
       "members": [
         {
-          "type": "STRING",
-          "value": "cc"
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "cc"
+            },
+            {
+              "type": "FIELD",
+              "name": "controller",
+              "content": {
+                "type": "SYMBOL",
+                "name": "number"
+              }
+            },
+            {
+              "type": "STRING",
+              "value": ">"
+            },
+            {
+              "type": "FIELD",
+              "name": "target",
+              "content": {
+                "type": "SYMBOL",
+                "name": "automation_target"
+              }
+            }
+          ]
         },
         {
-          "type": "FIELD",
-          "name": "controller",
-          "content": {
-            "type": "SYMBOL",
-            "name": "number"
-          }
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "keys"
+            },
+            {
+              "type": "STRING",
+              "value": ">"
+            },
+            {
+              "type": "FIELD",
+              "name": "track",
+              "content": {
+                "type": "SYMBOL",
+                "name": "identifier"
+              }
+            }
+          ]
         },
         {
-          "type": "STRING",
-          "value": ">"
-        },
-        {
-          "type": "FIELD",
-          "name": "target",
-          "content": {
-            "type": "SYMBOL",
-            "name": "automation_target"
-          }
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "pad"
+            },
+            {
+              "type": "FIELD",
+              "name": "note",
+              "content": {
+                "type": "SYMBOL",
+                "name": "number"
+              }
+            },
+            {
+              "type": "STRING",
+              "value": ">"
+            },
+            {
+              "type": "FIELD",
+              "name": "track",
+              "content": {
+                "type": "SYMBOL",
+                "name": "identifier"
+              }
+            },
+            {
+              "type": "FIELD",
+              "name": "drum",
+              "content": {
+                "type": "SYMBOL",
+                "name": "identifier"
+              }
+            }
+          ]
         }
       ]
     },

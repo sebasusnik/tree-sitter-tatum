@@ -130,6 +130,9 @@ midi {
     cc 20 > bass lp wet
     cc 22 > reverb_mix
     cc 8 > master tilt
+    cc 10 > pad pan
+    keys > solo
+    pad 36 > kick kick
 }
 
 ---
@@ -160,4 +163,15 @@ midi {
       (number)
       (automation_target
         (identifier)
-        (parameter_name)))))
+        (parameter_name)))
+    (midi_mapping
+      (number)
+      (automation_target
+        (identifier)
+        (parameter_name)))
+    (midi_mapping
+      (identifier))
+    (midi_mapping
+      (number)
+      (identifier)
+      (identifier))))
