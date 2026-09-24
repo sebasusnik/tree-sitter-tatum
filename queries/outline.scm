@@ -40,3 +40,6 @@
 
 (arrangement
   "arrange" @name) @item
+
+(midi_block
+  "midi" @name) @item

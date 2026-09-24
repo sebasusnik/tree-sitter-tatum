@@ -1,0 +1,5 @@
+tempo 120
+midi {
+    cc 74 > acid cutoff
+    cc 7 > pad level
+}

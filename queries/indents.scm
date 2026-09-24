@@ -8,6 +8,7 @@
   (groove_body)
   (chain_body)
   (arrangement)
+  (midi_block)
   (arguments)
   (step_lock)
 ] @indent

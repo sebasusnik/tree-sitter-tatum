@@ -75,6 +75,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "midi_block"
+        },
+        {
+          "type": "SYMBOL",
           "name": "bus_declaration"
         },
         {
@@ -1367,6 +1371,59 @@
         {
           "type": "STRING",
           "value": "}"
+        }
+      ]
+    },
+    "midi_block": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "midi"
+        },
+        {
+          "type": "STRING",
+          "value": "{"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "midi_mapping"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "}"
+        }
+      ]
+    },
+    "midi_mapping": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "cc"
+        },
+        {
+          "type": "FIELD",
+          "name": "controller",
+          "content": {
+            "type": "SYMBOL",
+            "name": "number"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ">"
+        },
+        {
+          "type": "FIELD",
+          "name": "target",
+          "content": {
+            "type": "SYMBOL",
+            "name": "automation_target"
+          }
         }
       ]
     },

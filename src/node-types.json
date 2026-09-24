@@ -664,6 +664,47 @@
     }
   },
   {
+    "type": "midi_block",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "midi_mapping",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "midi_mapping",
+    "named": true,
+    "fields": {
+      "controller": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "number",
+            "named": true
+          }
+        ]
+      },
+      "target": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "automation_target",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "module_body",
     "named": true,
     "fields": {},
@@ -1290,6 +1331,10 @@
           "named": true
         },
         {
+          "type": "midi_block",
+          "named": true
+        },
+        {
           "type": "module_definition",
           "named": true
         },
@@ -1550,6 +1595,10 @@
     "named": false
   },
   {
+    "type": "cc",
+    "named": false
+  },
+  {
     "type": "chord_symbol",
     "named": true
   },
@@ -1588,6 +1637,10 @@
   },
   {
     "type": "meter",
+    "named": false
+  },
+  {
+    "type": "midi",
     "named": false
   },
   {

@@ -38,6 +38,8 @@
   "play"
   "using"
   "extends"
+  "midi"
+  "cc"
 ] @keyword
 
 ; The names you define, and the names you refer to them by.
