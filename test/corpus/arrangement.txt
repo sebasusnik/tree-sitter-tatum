@@ -119,3 +119,59 @@ tempo 124   # and one after a statement
     (identifier)
     (number))
   (comment))
+
+==================
+MIDI knobs
+==================
+
+midi {
+    cc 74 > acid cutoff
+    cc 7  > pad level
+    cc 20 > bass lp wet
+    cc 22 > reverb_mix
+    cc 8 > master tilt
+    cc 10 > pad pan
+    keys > solo
+    pad 36 > kick kick
+}
+
+---
+
+(source_file
+  (midi_block
+    (midi_mapping
+      (number)
+      (automation_target
+        (identifier)
+        (parameter_name)))
+    (midi_mapping
+      (number)
+      (automation_target
+        (identifier)
+        (parameter_name)))
+    (midi_mapping
+      (number)
+      (automation_target
+        (identifier)
+        (identifier)
+        (parameter_name)))
+    (midi_mapping
+      (number)
+      (automation_target
+        (parameter_name)))
+    (midi_mapping
+      (number)
+      (automation_target
+        (identifier)
+        (parameter_name)))
+    (midi_mapping
+      (number)
+      (automation_target
+        (identifier)
+        (parameter_name)))
+    (midi_mapping
+      (identifier))
+    (midi_mapping
+      (number)
+      (identifier)
+      (identifier))))

@@ -664,6 +664,77 @@
     }
   },
   {
+    "type": "midi_block",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "midi_mapping",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "midi_mapping",
+    "named": true,
+    "fields": {
+      "controller": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "number",
+            "named": true
+          }
+        ]
+      },
+      "drum": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "note": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "number",
+            "named": true
+          }
+        ]
+      },
+      "target": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "automation_target",
+            "named": true
+          }
+        ]
+      },
+      "track": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "module_body",
     "named": true,
     "fields": {},
@@ -1290,6 +1361,10 @@
           "named": true
         },
         {
+          "type": "midi_block",
+          "named": true
+        },
+        {
           "type": "module_definition",
           "named": true
         },
@@ -1550,6 +1625,10 @@
     "named": false
   },
   {
+    "type": "cc",
+    "named": false
+  },
+  {
     "type": "chord_symbol",
     "named": true
   },
@@ -1583,11 +1662,19 @@
     "named": false
   },
   {
+    "type": "keys",
+    "named": false
+  },
+  {
     "type": "master",
     "named": false
   },
   {
     "type": "meter",
+    "named": false
+  },
+  {
+    "type": "midi",
     "named": false
   },
   {
@@ -1609,6 +1696,10 @@
   {
     "type": "option_key",
     "named": true
+  },
+  {
+    "type": "pad",
+    "named": false
   },
   {
     "type": "parameter_name",
